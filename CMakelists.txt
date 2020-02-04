@@ -1,10 +1,23 @@
 cmake_minimum_required(VERSION 3.14)
 
 # the name of our project
-PrOjEcT(some_sums)
+project(some_sums)
 
 # request to build an executable
 add_executable(some_sums src/sum.cpp src/sum_fast.cpp src/main.cpp)
 
 # suggest a path to CMake so that it finds the header files
 target_include_directories(some_sums PRIVATE inc)
+
+# check if "BEGIN" and "END" are defined
+if((DEFINED BEGIN) AND (DEFINED END))
+  set(ANSWER 0)
+  foreach(COUNTER RANGE ${BEGIN} ${END})
+    math(EXPR ANSWER "${COUNTER} + ${ANSWER}")
+  endforeach()
+  message(STATUS "The sum from ${BEGIN} to ${END} is ${ANSWER}\n")
+  unset(BEGIN CACHE)
+  unset(END CACHE)
+else()
+  message(STATUS "NOTE: you can define BEGIN and END to sum a series without compiling any C++ code!\n")
+endif()
