@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.14)
+
+# the name of our project
+PrOjEcT(some_sums)
+
+# request to build an executable
+add_executable(some_sums src/sum.cpp src/sum_fast.cpp src/main.cpp)
+
+# suggest a path to CMake so that it finds the header files
+target_include_directories(some_sums PRIVATE inc)
