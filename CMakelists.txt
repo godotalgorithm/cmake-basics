@@ -7,23 +7,14 @@ project(many_sums LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# look for BLAS library
-find_package(BLAS)
-
 # create a library with the common functions
 add_library(sum_lib STATIC)
-
-# diagnostic info
-message("BLAS libraries = ${BLAS_LIBRARIES}")
 
 # request to build an executable
 add_executable(some_sums)
 add_executable(more_sums)
 target_link_libraries(some_sums PRIVATE sum_lib)
-target_link_libraries(more_sums PRIVATE sum_lib)
-target_link_libraries(more_sums PRIVATE ${BLAS_LIBRARIES})
-#target_link_libraries(more_sums PRIVATE sum_lib "-lblas")
-target_link_options(more_sums PRIVATE ${BLAS_LINKER_FLAGS})
+target_link_libraries(more_sums PRIVATE sum_lib blas)
 
 # suggest a path to CMake so that it finds the header files
 target_include_directories(some_sums PRIVATE inc)

@@ -1,6 +1,9 @@
 // implementation of BLAS-based summation function
 
-double ddot(int*, double*, int*, double*, int*);
+extern "C"
+{
+  double ddot(int*, double*, int*, double*, int*);
+}
 
 int sum_blas(int a, int b)
 {
