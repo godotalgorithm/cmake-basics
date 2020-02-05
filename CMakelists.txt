@@ -16,7 +16,7 @@ add_executable(more_sums)
 target_link_libraries(some_sums PRIVATE sum_lib)
 target_link_libraries(more_sums PRIVATE sum_lib)
 
-target_compile_options(sum_lib PRIVATE -Wall -Werror)
+#target_compile_options(sum_lib PRIVATE -Wall -Werror)
 
 # suggest a path to CMake so that it finds the header files
 target_include_directories(some_sums PRIVATE inc)
@@ -28,3 +28,6 @@ enable_testing()
 
 add_test(NAME no_args COMMAND some_sums)
 add_test(NAME args COMMAND some_sums 1 10)
+
+install(TARGETS some_sums more_sums DESTINATION ${CMAKE_SOURCE_DIR}/bin)
+install(TARGETS sum_lib DESTINATION ${CMAKE_SOURCE_DIR}/lib)
