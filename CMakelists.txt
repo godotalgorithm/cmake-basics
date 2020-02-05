@@ -21,3 +21,8 @@ target_include_directories(some_sums PRIVATE inc)
 target_include_directories(more_sums PRIVATE inc)
 
 add_subdirectory(src)
+
+enable_testing()
+
+add_test(NAME no_args COMMAND some_sums)
+add_test(NAME args COMMAND some_sums 1 10)
