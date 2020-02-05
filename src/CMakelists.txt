@@ -1,0 +1,4 @@
+target_sources(some_sums PRIVATE main.cpp)
+target_sources(more_sums PRIVATE main2.cpp)
+
+add_subdirectory(sum)

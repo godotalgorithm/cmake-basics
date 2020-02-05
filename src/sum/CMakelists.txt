@@ -1,0 +1,4 @@
+target_sources(sum_lib PRIVATE
+ sum.cpp
+ sum_fast.cpp
+ sum_bad.cpp)
