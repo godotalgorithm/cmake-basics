@@ -9,6 +9,12 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
+  if(argc < 3)
+  {
+    cout << "SYNTAX: <executable> <starting integer> <ending integer>" << endl; 
+    return 1;
+  }
+
   stringstream ss;
   ss << argv[1] << ' ' << argv[2];
 
