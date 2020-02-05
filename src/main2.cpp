@@ -4,6 +4,7 @@
 #include "sum.hpp"
 #include "sum_fast.hpp"
 #include "sum_bad.hpp"
+#include "sum_blas.hpp"
 
 using namespace std;
 
@@ -29,6 +30,9 @@ int main(int argc, char** argv)
 
   total = sum_bad(begin, end);
   cout << "The bad version is " << total << endl;
+
+  total = sum_blas(begin, end);
+  cout << "The BLAS version is " << total << endl;
 
   return 0;
 }

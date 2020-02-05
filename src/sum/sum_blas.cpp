@@ -1,8 +1,10 @@
 // implementation of BLAS-based summation function
 
+double ddot(int*, double*, int*, double*, int*);
+
 int sum_blas(int a, int b)
 {
-  int size = b-a+1
+  int size = b-a+1;
   int stride = 1;
   double *int_list = new double[size];
   double *one_list = new double[size];
@@ -13,7 +15,8 @@ int sum_blas(int a, int b)
     one_list[i] = (double)1.0;
   }
 
-  double ans = ddot(&size, int_list, &stride, one_list, &stride);
+  double ans;
+  ans = ddot(&size, int_list, &stride, one_list, &stride);
 
   delete[] int_list;
   delete[] one_list;
